@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Camera } from 'lucide-react';
 
@@ -16,9 +17,9 @@ export default function Hero() {
             <a href='#contact' className='inline-flex items-center gap-3 bg-indigo-600 text-white px-5 py-3 rounded-lg shadow hover:opacity-95 dark:bg-indigo-500'>
               Get a proposal <ArrowRight size={16} />
             </a>
-            <a href='/portfolio' className='inline-flex items-center gap-3 border border-slate-300 dark:border-slate-600 px-5 py-3 rounded-lg dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'>
+            <Link to='/portfolio' className='inline-flex items-center gap-3 border border-slate-300 dark:border-slate-600 px-5 py-3 rounded-lg dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800'>
               View work
-            </a>
+            </Link>
           </div>
 
           <div className='mt-8 grid grid-cols-3 gap-4 max-w-xs text-sm text-slate-500 dark:text-slate-400'>

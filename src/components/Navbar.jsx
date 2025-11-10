@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Menu, X, Mail } from 'lucide-react';
 import ThemeToggle from './ThemeToggle';
 import Modal from './Modal';
@@ -23,13 +24,13 @@ export default function Navbar() {
     <header className='sticky top-0 z-40 bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm shadow-sm'>
       <div className='max-w-7xl mx-auto px-6 py-4 flex items-center justify-between'>
         <div className='flex items-center gap-3'>
-          <a href='/' aria-label='WakaDigital home' className='flex items-center gap-3'>
+          <Link to='/' aria-label='WakaDigital home' className='flex items-center gap-3'>
             <div className='w-10 h-10 rounded-lg bg-gradient-to-br from-indigo-600 to-sky-400 flex items-center justify-center text-white font-bold'>WA</div>
             <div>
               <div className='font-semibold dark:text-white'>WakaDigital</div>
               <div className='text-xs text-slate-500 dark:text-slate-400'>Web & Marketing Agency</div>
             </div>
-          </a>
+          </Link>
         </div>
 
         <nav
@@ -44,13 +45,20 @@ export default function Navbar() {
           >
             Services
           </a>
-          <a
-            href='/portfolio'
+          <Link
+            to='/portfolio'
             aria-label='Navigate to Portfolio page'
             className='hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400'
           >
             Work
-          </a>
+          </Link>
+          <Link
+            to='/blog'
+            aria-label='Navigate to Blog page'
+            className='hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400'
+          >
+            Blog
+          </Link>
           <a
             href='#process'
             aria-label='Navigate to Process section'
@@ -114,14 +122,22 @@ export default function Navbar() {
           >
             Services
           </a>
-          <a
-            href='/portfolio'
+          <Link
+            to='/portfolio'
             onClick={handleLinkClick}
             aria-label='Navigate to Portfolio page'
             className='px-4 py-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800'
           >
             Work
-          </a>
+          </Link>
+          <Link
+            to='/blog'
+            onClick={handleLinkClick}
+            aria-label='Navigate to Blog page'
+            className='px-4 py-3 rounded-md hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800'
+          >
+            Blog
+          </Link>
           <a
             href='#process'
             onClick={handleLinkClick}

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import FeaturesGrid from '../components/FeaturesGrid';
@@ -36,8 +37,8 @@ export default function Home() {
             <h3 className='text-sm text-indigo-600 dark:text-indigo-400 font-semibold'>Selected work</h3>
             <div className='flex items-center justify-between mt-2 mb-8'>
               <h2 className='text-3xl font-bold dark:text-white'>Projects we're proud of</h2>
-              <a
-                href='/portfolio'
+              <Link
+                to='/portfolio'
                 className='text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1'
               >
                 View All Projects
@@ -55,7 +56,7 @@ export default function Home() {
                     d='M9 5l7 7-7 7'
                   />
                 </svg>
-              </a>
+              </Link>
             </div>
 
             <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -68,9 +69,9 @@ export default function Home() {
                     <p className='text-sm text-slate-600 dark:text-slate-300 mt-2'>Design and development for a boutique retailer — conversion uplift and faster checkout.</p>
                     <div className='mt-4 flex items-center justify-between text-sm text-slate-500 dark:text-slate-400'>
                       <span>3 months</span>
-                      <a href='/portfolio' className='underline hover:text-indigo-600 dark:hover:text-indigo-400'>
+                      <Link to='/portfolio' className='underline hover:text-indigo-600 dark:hover:text-indigo-400'>
                         View project
-                      </a>
+                      </Link>
                     </div>
                   </div>
                 </article>

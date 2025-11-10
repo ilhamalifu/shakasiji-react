@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -143,18 +144,18 @@ export default function Portfolio() {
               Let's discuss how we can bring your vision to life with our expertise and creativity.
             </p>
             <div className='mt-8 flex flex-col sm:flex-row gap-4 justify-center'>
-              <a
-                href='/#contact'
+              <Link
+                to='/#contact'
                 className='inline-flex items-center justify-center gap-2 bg-white text-indigo-600 px-6 py-3 rounded-md font-semibold hover:opacity-95 transition-opacity'
               >
                 Get Started
-              </a>
-              <a
-                href='/'
+              </Link>
+              <Link
+                to='/'
                 className='inline-flex items-center justify-center gap-2 border-2 border-white text-white px-6 py-3 rounded-md font-semibold hover:bg-white/10 transition-colors'
               >
                 Back to Home
-              </a>
+              </Link>
             </div>
           </div>
         </section>
