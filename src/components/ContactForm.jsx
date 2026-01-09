@@ -28,7 +28,6 @@ export default function ContactForm() {
 
   // Get access key from env var or use fallback (developer should replace with env var)
   const accessKey = import.meta.env.VITE_WEB3FORMS_KEY || '19871348-d2cd-4940-877b-85914d67cc19';
-  // TODO: Replace fallback key with environment variable for security
 
   const validateEmail = (email) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -39,17 +38,17 @@ export default function ContactForm() {
     const newErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = 'Nama wajib diisi';
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = 'Email wajib diisi';
     } else if (!validateEmail(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = 'Masukkan alamat email yang valid';
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = 'Message is required';
+      newErrors.message = 'Pesan wajib diisi';
     }
 
     setErrors(newErrors);
@@ -138,7 +137,7 @@ export default function ContactForm() {
       {/* Name field */}
       <div className='sm:col-span-2 sm:col-start-1'>
         <label htmlFor='name' className='sr-only'>
-          Your name
+          Nama Anda
         </label>
         <input
           id='name'
@@ -146,14 +145,13 @@ export default function ContactForm() {
           type='text'
           value={formData.name}
           onChange={handleChange}
-          placeholder='Your name'
+          placeholder='Nama Anda'
           required
           aria-required='true'
           aria-invalid={errors.name ? 'true' : 'false'}
           aria-describedby={errors.name ? 'name-error' : undefined}
-          className={`p-3 rounded-md text-slate-800 w-full ${
-            errors.name ? 'border-2 border-red-500' : 'border border-slate-300'
-          } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent`}
+          className={`p-3 rounded-md text-slate-800 w-full ${errors.name ? 'border-2 border-red-500' : 'border border-slate-300'
+            } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent`}
         />
         {errors.name && (
           <p id='name-error' className='mt-1 text-sm text-red-200' role='alert'>
@@ -165,7 +163,7 @@ export default function ContactForm() {
       {/* Email field */}
       <div className='sm:col-span-2 sm:col-start-1'>
         <label htmlFor='email' className='sr-only'>
-          Email address
+          Alamat Email
         </label>
         <input
           id='email'
@@ -173,14 +171,13 @@ export default function ContactForm() {
           type='email'
           value={formData.email}
           onChange={handleChange}
-          placeholder='Email address'
+          placeholder='Alamat Email'
           required
           aria-required='true'
           aria-invalid={errors.email ? 'true' : 'false'}
           aria-describedby={errors.email ? 'email-error' : undefined}
-          className={`p-3 rounded-md text-slate-800 w-full ${
-            errors.email ? 'border-2 border-red-500' : 'border border-slate-300'
-          } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent`}
+          className={`p-3 rounded-md text-slate-800 w-full ${errors.email ? 'border-2 border-red-500' : 'border border-slate-300'
+            } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent`}
         />
         {errors.email && (
           <p id='email-error' className='mt-1 text-sm text-red-200' role='alert'>
@@ -192,7 +189,7 @@ export default function ContactForm() {
       {/* Company field (optional) */}
       <div className='sm:col-span-2'>
         <label htmlFor='company' className='sr-only'>
-          Company (optional)
+          Perusahaan (opsional)
         </label>
         <input
           id='company'
@@ -200,7 +197,7 @@ export default function ContactForm() {
           type='text'
           value={formData.company}
           onChange={handleChange}
-          placeholder='Company (optional)'
+          placeholder='Perusahaan (opsional)'
           className='p-3 rounded-md text-slate-800 w-full border border-slate-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent'
         />
       </div>
@@ -208,22 +205,21 @@ export default function ContactForm() {
       {/* Message field */}
       <div className='sm:col-span-2'>
         <label htmlFor='message' className='sr-only'>
-          Tell us about your project
+          Ceritakan tentang proyek Anda
         </label>
         <textarea
           id='message'
           name='message'
           value={formData.message}
           onChange={handleChange}
-          placeholder='Tell us about your project'
+          placeholder='Ceritakan tentang proyek Anda'
           required
           aria-required='true'
           aria-invalid={errors.message ? 'true' : 'false'}
           aria-describedby={errors.message ? 'message-error' : undefined}
           rows={5}
-          className={`p-3 rounded-md text-slate-800 w-full resize-y ${
-            errors.message ? 'border-2 border-red-500' : 'border border-slate-300'
-          } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent`}
+          className={`p-3 rounded-md text-slate-800 w-full resize-y ${errors.message ? 'border-2 border-red-500' : 'border border-slate-300'
+            } focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent`}
         />
         {errors.message && (
           <p id='message-error' className='mt-1 text-sm text-red-200' role='alert'>
@@ -243,11 +239,11 @@ export default function ContactForm() {
           {isLoading ? (
             <>
               <Loader2 size={16} className='animate-spin' aria-hidden='true' />
-              Sending...
+              Mengirim...
             </>
           ) : (
             <>
-              Send inquiry <ArrowRight size={16} aria-hidden='true' />
+              Kirim Pesan <ArrowRight size={16} aria-hidden='true' />
             </>
           )}
         </button>
@@ -260,7 +256,7 @@ export default function ContactForm() {
             className='mt-4 p-4 rounded-md bg-green-500 text-white text-sm'
             role='status'
           >
-            Thank you! Your message has been sent successfully. We'll get back to you soon.
+            Terima kasih! Pesan Anda berhasil terkirim. Kami akan segera menghubungi Anda.
           </div>
         )}
         {submitStatus === 'error' && (
@@ -268,11 +264,10 @@ export default function ContactForm() {
             className='mt-4 p-4 rounded-md bg-red-500 text-white text-sm'
             role='alert'
           >
-            Sorry, there was an error sending your message. Please try again later or contact us directly.
+            Maaf, terjadi kesalahan saat mengirim pesan. Silakan coba lagi atau hubungi kami langsung via WhatsApp.
           </div>
         )}
       </div>
     </form>
   );
 }
-
