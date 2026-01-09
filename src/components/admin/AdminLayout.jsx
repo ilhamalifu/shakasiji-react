@@ -7,7 +7,8 @@ import {
     LogOut,
     Menu,
     X,
-    ChevronRight
+    ChevronRight,
+    ExternalLink
 } from 'lucide-react';
 
 const navItems = [
@@ -61,8 +62,8 @@ export default function AdminLayout({ children, currentPage = 'dashboard' }) {
                                 key={item.id}
                                 onClick={() => handleNavigation(item.href)}
                                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg text-left transition-all ${isActive
-                                        ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium'
-                                        : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                    ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-medium'
+                                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
                                     }`}
                             >
                                 <Icon size={20} />
@@ -71,6 +72,17 @@ export default function AdminLayout({ children, currentPage = 'dashboard' }) {
                             </button>
                         );
                     })}
+
+                    {/* View Site Link */}
+                    <a
+                        href="/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 mt-4 border-t border-slate-200 dark:border-slate-700 pt-4"
+                    >
+                        <ExternalLink size={20} />
+                        <span>Lihat Website</span>
+                    </a>
                 </nav>
 
                 {/* User & Logout */}
